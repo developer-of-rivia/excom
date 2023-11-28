@@ -48,25 +48,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
-	const swiper = new Swiper('.swiper', {
-
-		loop: true,
-		slidesPerView: 3,
-	  
-		// If we need pagination
-		pagination: {
-		  el: '.swiper-pagination',
-		},
-	  
-		// Navigation arrows
-		navigation: {
-		  nextEl: '.swiper-button-next',
-		  prevEl: '.swiper-button-prev',
-		},
-	});
-
-
-
-
 })
+
+
+
+
+const swiper = new Swiper('.gallery__swiper', {
+	loop: true,
+
+	// If we need pagination
+	// pagination: {
+	//   el: '.swiper-pagination',
+	// },
+  
+	// Navigation arrows
+	// navigation: {
+	//   nextEl: '.swiper-button-next',
+	//   prevEl: '.swiper-button-prev',
+	// },
+
+
+	breakpoints: {
+		320: {
+			sliderPerView: 1,
+			spaceBetween: 10,
+			centeredSlides: true,
+		},
+		768: {
+			sliderPerView: 3,
+			spaceBetween: 20,
+		}
+	},
+});
