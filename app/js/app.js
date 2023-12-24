@@ -1,94 +1,74 @@
-// // Import vendor jQuery plugin example
-// import '~/app/libs/mmenu/dist/mmenu.js'
-import '../../node_modules/flowbite/dist/flowbite.min.js'
-
-
 document.addEventListener('DOMContentLoaded', () => {
 
+	// Табы
+	var tabNavs = document.querySelectorAll(".nav-tab");
+	var tabPanes = document.querySelectorAll(".tab-pane");
 
-	var element = document.getElementById('header');
-	window.addEventListener('scroll', function () {
-	if (window.scrollY > 120) {
-			element.classList.add("shadow-md");
-		} else {
-			element.classList.remove("shadow-md");
-		}
+	for (var i = 0; i < tabNavs.length; i++) {
+		tabNavs[i].addEventListener("click", function(e){
+			e.preventDefault();
+			var activeTabAttr = e.target.getAttribute("data-tab");
+
+			for (var j = 0; j < tabNavs.length; j++) {
+			var contentAttr = tabPanes[j].getAttribute("data-tab-content");
+
+			if (activeTabAttr === contentAttr) {
+				tabNavs[j].classList.add("active");
+				tabPanes[j].classList.add("active"); 
+			} else {
+				tabNavs[j].classList.remove("active");
+				tabPanes[j].classList.remove("active");
+			}
+			};
+		});
+	}
+
+
+
+
+	const swiper = new Swiper('.gallery__swiper', {
+		// loop: true,
+		centeredSlides: true,
+		slidesPerView: 'auto',
+		simulateTouch: false,
+		initialSlide: 1,
+
+		
+		pagination: {
+		  el: '.swiper-pagination',
+		},
+	  
+		navigation: {
+		  nextEl: '.swiper-button-next',
+		  prevEl: '.swiper-button-prev',
+		},
 	});
 
 
 
 
-	//Accordeon
-	var accordeonButtons = document.getElementsByClassName("accordeon-title");
-	for (var i = 0; i < accordeonButtons.length; i++) {
-		var accordeonButton = accordeonButtons[i];
-
-		accordeonButton.addEventListener("click", toggleItems, false);
-	}
-
-	function toggleItems() {
-
-		var itemClass = this.className;
-
-		for (var i = 0; i < accordeonButtons.length; i++) {
-			accordeonButtons[i].className = "accordeon-title closed";
-		}
-
-		var pannels = document.getElementsByClassName("accordeon-content");
-		for (var z = 0; z < pannels.length; z++) {
-			pannels[z].style.maxHeight = 0;
-		}
-
-		if (itemClass == "accordeon-title closed") {
-			this.className = "accordeon-title active";
-			var panel = this.nextElementSibling;
-			panel.style.maxHeight = panel.scrollHeight + "px";
-		}
-	}
 
 
 
+	const swiper2 = new Swiper(".mySwiper", {
+		spaceBetween: 10,
+		slidesPerView: 4,
+		freeMode: true,
+		watchSlidesProgress: true,
+	});
+	const swiper3 = new Swiper(".mySwiper2", {
+		spaceBetween: 10,
+		navigation: {
+		  nextEl: ".swiper-button-next",
+		  prevEl: ".swiper-button-prev",
+		},
+		thumbs: {
+		  swiper: swiper2,
+		},
+	});
 
-	let bg = document.querySelector('.tavern');
 
-	document.onmousemove = (e)=>{
-		let x = e.clientX / window.innerWidth;
-		let y = e.clientY / window.innerHeight;
-
-		bg.style.transform = "translate(-" + x * 50 + "px, -" + y * 50 + "px)";
-	};
 
 
 
 })
-
-
-
-
-const swiper = new Swiper('.gallery__swiper', {
-	loop: true,
-
-	// If we need pagination
-	// pagination: {
-	//   el: '.swiper-pagination',
-	// },
-  
-	// Navigation arrows
-	// navigation: {
-	//   nextEl: '.swiper-button-next',
-	//   prevEl: '.swiper-button-prev',
-	// },
-
-
-	breakpoints: {
-		320: {
-			sliderPerView: 1,
-			spaceBetween: 10,
-			centeredSlides: true,
-		},
-		768: {
-			sliderPerView: 3,
-			spaceBetween: 20,
-		}
-	},
-});
