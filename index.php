@@ -1,5 +1,168 @@
 <?php get_header(); ?>
 
+
+	<div class="modals">
+		<div class="modal-overlay">
+			<div class="modal modal--1" data-target="eatcont-popup">
+				<div class="modal-close">
+					<!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+					</svg> -->
+				</div>
+				<!-- eatcont -->
+				<section class="eatcont-section">
+					<div class="container">
+						<div class="eatcont">
+							<div class="eatcont__wrapper">
+								<div class="eatcont__top-ungles"></div>
+								<div class="eatcont__bottom-ungles"></div>
+								<div class="eatcont__title">
+									Контракт <br>на еду
+								</div>
+								<div class="eatcont__img">
+									<img src="<?php echo get_template_directory_uri(); ?>/app/images/eatcont-logo.png">
+								</div>
+
+								<!-- tabs head -->
+								<div class="nav-tabs">
+									<?php
+										$query = new WP_Query([
+											'post_type' => 'menu',
+										]);
+										$menu_count_head = 0;
+
+										if ( $query->have_posts() ) {
+											while ( $query->have_posts() ) {
+												$query->the_post();
+												?>
+													<a href="#" data-tab="<?php the_ID(); ?>" class="nav-tab <?= $menu_count_head == 0 ? 'active' : '' ?>"><?php the_title(); ?></a>
+												<?php
+												$menu_count_head++;
+											}
+										}
+
+										wp_reset_postdata();
+									?>
+								</div>
+								<!-- tab content -->
+								<div class="tab-content">
+									<?php
+										$query = new WP_Query([
+											'post_type' => 'menu',
+										]);
+
+										if ( $query->have_posts() ) {
+											while ( $query->have_posts() ) {
+												$query->the_post();
+												?>
+													<div data-tab-content="<?php the_ID(); ?>" class="tab-pane <?= $menu_count == 0 ? 'active' : '' ?>">
+														<div class="eatcont__menu">
+															<div class="eatcont__menu-column">
+																<?php
+																	$menu_left_groups = CFS()->get('menu_left_groups');
+
+																	foreach ($menu_left_groups as $left_group) {
+																		?>
+																		<div class="eatcont__box">
+																			<div class="eatcont__box-title">
+																				<?= $left_group['menu_left_groups_tiitle']; ?>
+																			</div>
+																			<?php
+																				$menu_left_groups_dishes = $left_group['menu_left_groups_dishes'];
+																				foreach($menu_left_groups_dishes as $dish){
+																					?>
+
+																					<div class="eatcont__item">
+																						<div class="eatcont__item-left">
+																							<div class="eatcont__item-name">
+																								<?= $dish['menu_left_groups_dishes_title']; ?>
+																							</div>
+																							<div class="eatcont__item-ingrs">
+																								<?= $dish['menu_left_groups_dishes_ingrs']; ?>
+																							</div>
+																						</div>
+																						<div class="eatcont__item-right">
+																							<div class="eatcont__item-g">
+																								<?= $dish['menu_left_groups_dishes_weight']; ?>
+																							</div>
+																							<div class="eatcont__item-cost">
+																								<?= $dish['menu_left_groups_dishes_cost']; ?>
+																							</div>
+																						</div>
+																						<div class="eatcont__image">
+																							<img src="<?= $dish['menu_left_groups_dishes_img']; ?>">
+																						</div>
+																					</div>
+
+																			<?php } ?>
+																		</div>
+																	<?php }
+																?>
+															</div>
+															<div class="eatcont__menu-column">
+																<?php
+																	$menu_right_groups = CFS()->get('menu_right_groups');
+
+																	foreach ($menu_right_groups as $right_group) {
+																		?>
+																		<div class="eatcont__box">
+																			<div class="eatcont__box-title">
+																				<?= $right_group['menu_right_groups_tiitle']; ?>
+																			</div>
+																			<?php
+																				$menu_right_groups_dishes = $right_group['menu_right_groups_dishes'];
+																				foreach($menu_right_groups_dishes as $dish){
+																					?>
+
+																					<div class="eatcont__item">
+																						<div class="eatcont__item-left">
+																							<div class="eatcont__item-name">
+																								<?= $dish['menu_right_groups_dishes_title']; ?>
+																							</div>
+																							<div class="eatcont__item-ingrs">
+																								<?= $dish['menu_right_groups_dishes_ingrs']; ?>
+																							</div>
+																						</div>
+																						<div class="eatcont__item-right">
+																							<div class="eatcont__item-g">
+																								<?= $dish['menu_right_groups_dishes_weight']; ?>
+																							</div>
+																							<div class="eatcont__item-cost">
+																								<?= $dish['menu_right_groups_dishes_cost']; ?>
+																							</div>
+																						</div>
+																						<div class="eatcont__image">
+																							<img src="<?= $dish['menu_right_groups_dishes_img']; ?>">
+																						</div>
+																					</div>
+
+																			<?php } ?>
+																		</div>
+																	<?php }
+																?>
+															</div>
+														</div>
+													</div>
+												<?php
+												$menu_count++;
+											}
+										}
+									?>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+			<div class="modal modal--2" data-target="me-popup">
+				Окно 2
+			</div>
+		</div>
+	</div>
+
+
+
+
 	<main class="main">
 		<!-- header -->
 		<header class="header">
@@ -44,7 +207,7 @@
 							Найти
 						</div>
 					</div>
-					<div class="nav__item" style="background-image: url(<?php echo get_template_directory_uri(); ?>/app/images/slider-img2.png)">
+					<div class="nav__item nav__item_gallery" style="background-image: url(<?php echo get_template_directory_uri(); ?>/app/images/slider-img2.png)">
 						<span class="nav__item-title">
 							Галерея
 						</span>
@@ -52,7 +215,7 @@
 							Завайбиться
 						</div>
 					</div>
-					<div class="nav__item" style="background-image: url(<?php echo get_template_directory_uri(); ?>/app/images/menu-nav2.jpg)">
+					<div class="nav__item popup-link" data-path="eatcont-popup" style="background-image: url(<?php echo get_template_directory_uri(); ?>/app/images/menu-nav2.jpg)">
 						<span class="nav__item-title">
 							Меню
 						</span>
@@ -60,7 +223,7 @@
 							Посмотреть
 						</div>
 					</div>
-					<div class="nav__item" style="background-image: url(<?php echo get_template_directory_uri(); ?>/app/images/tavern-img1.png)">
+					<div class="nav__item nav__item_bar" style="background-image: url(<?php echo get_template_directory_uri(); ?>/app/images/tavern-img1.png)">
 						<span class="nav__item-title">
 							Наш бар
 						</span>
@@ -81,11 +244,14 @@
 					</div>
 				</div>
 			</div>
+			<div class="nav__print">
+				<img src="<?php echo get_template_directory_uri(); ?>/app/images/bg-print.png">
+			</div>
 		</div>
 	</main>
 	<!-- info -->
 	<div class="info" id="info">
-		<div class="container">
+		<div class="container info__container">
 			<div class="info__wrapper">
 				<div class="info__box">
 					<div class="info__box-left">
@@ -113,7 +279,7 @@
 					<div class="info__box-right">
 						<div class="info__time">
 							<div class="info__time-icon">
-								<img src="<?php echo get_template_directory_uri(); ?>/app/images/clock-icon.png">
+								<img src="<?php echo get_template_directory_uri(); ?>/app/images/clock.svg">
 							</div>
 							<div class="info__time-content">
 								<span>пн, вт, ср, чт</span>
@@ -122,7 +288,7 @@
 						</div>
 						<div class="info__time">
 							<div class="info__time-icon">
-								<img src="<?php echo get_template_directory_uri(); ?>/app/images/clock-icon.png">
+								<img src="<?php echo get_template_directory_uri(); ?>/app/images/clock.svg">
 							</div>
 							<div class="info__time-content">
 								<span>пн, вт, ср, чт</span>
@@ -131,7 +297,7 @@
 						</div>
 						<div class="info__time">
 							<div class="info__time-icon">
-								<img src="<?php echo get_template_directory_uri(); ?>/app/images/clock-icon.png">
+								<img src="<?php echo get_template_directory_uri(); ?>/app/images/clock.svg">
 							</div>
 							<div class="info__time-content">
 								<span>пн, вт, ср, чт</span>
@@ -242,88 +408,125 @@
 						</button>
 					</div>
 				</div>
-				<!-- <div class="tavern__right">
-					<div class="tavern__imgs">
-						<div class="swiper mySwiper2">
-							<div class="swiper-wrapper">
-								<div class="swiper-slide">
-									<img src="<?php echo get_template_directory_uri(); ?>/app/images/tavern-img1.png">
-								</div>
-								<div class="swiper-slide">
-									<img src="<?php echo get_template_directory_uri(); ?>/app/images/tavern-img1.png">
-								</div>
-								<div class="swiper-slide">
-									<img src="<?php echo get_template_directory_uri(); ?>/app/images/tavern-img1.png">
-								</div>
-								<div class="swiper-slide">
-									<img src="<?php echo get_template_directory_uri(); ?>/app/images/tavern-img1.png">
-								</div>
-								<div class="swiper-slide">
-									<img src="<?php echo get_template_directory_uri(); ?>/app/images/tavern-img2.png">
-								</div>
-							</div>
-						</div>
-						<div thumbsSlider="" class="swiper mySwiper">
-							<div class="swiper-wrapper">
-								<div class="swiper-slide">
-									<img src="<?php echo get_template_directory_uri(); ?>/app/images/tavern-img1.png" />
-								</div>
-								<div class="swiper-slide">
-									<img src="<?php echo get_template_directory_uri(); ?>/app/images/tavern-img1.png" />
-								</div>
-								<div class="swiper-slide">
-									<img src="<?php echo get_template_directory_uri(); ?>/app/images/tavern-img1.png" />
-								</div>
-								<div class="swiper-slide">
-									<img src="<?php echo get_template_directory_uri(); ?>/app/images/tavern-img1.png" />
-								</div>
-								<div class="swiper-slide">
-									<img src="<?php echo get_template_directory_uri(); ?>/app/images/tavern-img2.png" />
-								</div>
-							</div>
-						</div>
-					</div>
-				</div> -->
 				<div class="tavern__right">
 					<img src="<?php echo get_template_directory_uri(); ?>/app/images/tavern-callage.png">
 				</div>
 			</div>
 		</div>
 	</div>
-
-
-
-	
-				
-
-
-
-
-	<!-- last -->
-	<div class="last">
-		<div class="container">
-			<h2 class="last__title title">
-				Дополнительная информация
-			</h2>
-			<div class="last__box">
-				<div class="last__item">
-					<div class="last__item-head">
-						Скидки постоянным клиентам
+	<div class="bottom-sections">
+		<!-- last -->
+		<div class="last">
+			<div class="container">
+				<h2 class="last__title title">
+					Дополнительная информация
+				</h2>
+				<div class="last__box">
+					<div class="last__item">
+						<div class="last__item-head">
+							Скидки постоянным клиентам
+						</div>
+						<div class="last__item-text">
+							Далеко-далеко за, словесными горами в стране гласных и согласных живут рыбные тексты.
+						</div>
 					</div>
-					<div class="last__item-text">
-						Далеко-далеко за, словесными горами в стране гласных и согласных живут рыбные тексты.
-					</div>
-				</div>
-				<div class="last__item">
-					<div class="last__item-head">
-						Устроить мероприятие
-					</div>
-					<div class="last__item-text">
-						Далеко-далеко за, словесными горами в стране гласных и согласных живут рыбные тексты.
+					<div class="last__item">
+						<div class="last__item-head">
+							Устроить мероприятие
+						</div>
+						<div class="last__item-text">
+							Далеко-далеко за, словесными горами в стране гласных и согласных живут рыбные тексты.
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		<!-- footer -->
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__box">
+					<div class="footer__side footer__side_left">
+						<!-- times -->
+						<div class="footer__block footer__times">
+							<div class="footer__block-title">
+								Время работы:
+							</div>
+							<ul class="footer-block-list">
+								<?php
+									$f_times = CFS()->get('footer_times', 2);
+									foreach ($f_times as $f_times_item){
+										?>
+										<li class="footer-block-li">
+											<?php echo $f_times_item['footer_times_item']; ?>
+										</li>
+									<?php
+									}
+								?>
+							</ul>
+						</div>
+						<!-- contacts -->
+						<div class="footer__block footer__contacts">
+							<div class="footer__block-title">
+								Контакты:
+							</div>
+							<ul class="footer-block-list">
+								<?php
+									$f_times = CFS()->get('footer_contacts', 2);
+									foreach ($f_times as $f_times_item){
+										?>
+										<li class="footer-block-li">
+											<?php echo $f_times_item['footer_contacts_item']; ?>
+										</li>
+									<?php
+									}
+								?>
+							</ul>
+						</div>
+					</div>
+					<div class="footer__center">
+						<img src="<?php echo get_template_directory_uri(); ?>/app/images/footer-logo.png">
+					</div>
+					<div class="footer__side footer__side_right">
+						<div class="footer__block">
+							<div class="footer__address">
+								<?php
+									echo CFS()->get('footer_address', 2);
+								?>
+							</div>
+							<ul class="footer__social">
+								<li class="footer__social-item">
+									<a href="#">
+										<img src="<?php echo get_template_directory_uri(); ?>/app/images/insta.svg">
+									</a>
+								</li>
+								<li class="footer__social-item">
+									<a href="#">
+										<img src="<?php echo get_template_directory_uri(); ?>/app/images/whatsapp.svg">
+									</a>
+								</li>
+								<li class="footer__social-item">
+									<a href="#">
+										<img src="<?php echo get_template_directory_uri(); ?>/app/images/telega.svg">
+									</a>
+								</li>
+								<li class="footer__social-item">
+									<a href="#">
+										<img src="<?php echo get_template_directory_uri(); ?>/app/images/vk.svg">
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="footer__block footer__2gis">
+							<span>Оставьте отзыв на</span>
+							<img src="<?php echo get_template_directory_uri(); ?>/app/images/2gis.svg">
+						</div>
+					</div>
+					<div class="footer__print">
+						<img src="<?php echo get_template_directory_uri(); ?>/app/images/bg-print.png">
+					</div>
+				</div>
+			</div>
+		</footer>
 	</div>
-<!-- footer -->
+<!-- get_footer -->
 <?php get_footer(); ?>

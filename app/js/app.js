@@ -1,5 +1,53 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+
+
+	// модалки
+	const btns = document.querySelectorAll('.popup-link');
+	const modalOverlay = document.querySelector('.modal-overlay ');
+	const modals = document.querySelectorAll('.modal');
+	const close = document.querySelector('.modal-close');
+
+	btns.forEach((el) => {
+		el.addEventListener('click', (e) => {
+			let path = e.currentTarget.getAttribute('data-path');
+
+			modals.forEach((el) => {
+				el.classList.remove('modal--visible');
+			});
+
+			document.querySelector(`[data-target="${path}"]`).classList.add('modal--visible');
+			modalOverlay.classList.add('modal-overlay--visible');
+		});
+	});
+
+	modalOverlay.addEventListener('click', (e) => {
+		console.log(e.target);
+
+		if (e.target == modalOverlay) {
+			modalOverlay.classList.remove('modal-overlay--visible');
+			modals.forEach((el) => {
+				el.classList.remove('modal--visible');
+			});
+		}
+	});
+
+	close.addEventListener('click', (e) => {
+		console.log(e.target);
+
+		if (e.target == close) {
+			modalOverlay.classList.remove('modal-overlay--visible');
+			modals.forEach((el) => {
+				el.classList.remove('modal--visible');
+			});
+		}
+	});
+
+
+
+
+
+
 	// Табы
 	var tabNavs = document.querySelectorAll(".nav-tab");
 	var tabPanes = document.querySelectorAll(".tab-pane");
