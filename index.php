@@ -5,9 +5,7 @@
 		<div class="modal-overlay">
 			<div class="modal modal--1" data-target="eatcont-popup">
 				<div class="modal-close">
-					<!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-						<path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-					</svg> -->
+					
 				</div>
 				<!-- eatcont -->
 				<section class="eatcont-section">
@@ -306,20 +304,38 @@
 						</div>
 						<div class="info__time">
 							<div class="info__time-icon">
-								<img src="<?php echo get_template_directory_uri(); ?>/app/images/mail-icon.png">
+								<img src="<?php echo get_template_directory_uri(); ?>/app/images/mail.svg">
 							</div>
 							<div class="info__time-content">
 								<p>info@dedbynokol.com</p>
 							</div>
 						</div>
+						<ul class="info__social">
+							<li class="info__social-item">
+								<a href="#">
+									<img src="http://excomunicado/wp-content/themes/excommunicado/app/images/insta.svg">
+								</a>
+							</li>
+							<li class="info__social-item">
+								<a href="#">
+									<img src="http://excomunicado/wp-content/themes/excommunicado/app/images/whatsapp.svg">
+								</a>
+							</li>
+							<li class="info__social-item">
+								<a href="#">
+									<img src="http://excomunicado/wp-content/themes/excommunicado/app/images/telega.svg">
+								</a>
+							</li>
+							<li class="info__social-item">
+								<a href="#">
+									<img src="http://excomunicado/wp-content/themes/excommunicado/app/images/vk.svg">
+								</a>
+							</li>
+						</ul>
 						<div class="info__number">
-							<span>Сотрудничество:</span> <br>
-							+7 913 279-32-92 (Николай)
+							<span>Сотрудничество:</span>
+							<a href="tel:79132793292">+7 913 279-32-92 (Николай)</a>
 						</div>
-						<div class="info__socials">
-							◘
-						</div>
-						.info__box
 					</div>
 				</div>
 				<div class="info__map">
