@@ -74,7 +74,7 @@
 		// remove_menu_page( 'options-general.php' ); // Настройки
 
 
-		remove_menu_page( 'themes.php' ); // Внешний вид
+		// remove_menu_page( 'themes.php' ); // Внешний вид
 		remove_menu_page( 'edit-comments.php' ); // Комментарии
 		remove_menu_page( 'edit.php' ); // Записи
 		remove_menu_page( 'index.php' ); // Консоль

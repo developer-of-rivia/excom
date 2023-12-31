@@ -519,29 +519,9 @@
 									<?php
 									}
 								?>
-								<!-- <li class="footer__social-item">
-									<a href="#">
-										<img src="<?php echo get_template_directory_uri(); ?>/app/images/insta.svg">
-									</a>
-								</li>
-								<li class="footer__social-item">
-									<a href="#">
-										<img src="<?php echo get_template_directory_uri(); ?>/app/images/whatsapp.svg">
-									</a>
-								</li>
-								<li class="footer__social-item">
-									<a href="#">
-										<img src="<?php echo get_template_directory_uri(); ?>/app/images/telega.svg">
-									</a>
-								</li>
-								<li class="footer__social-item">
-									<a href="#">
-										<img src="<?php echo get_template_directory_uri(); ?>/app/images/vk.svg">
-									</a>
-								</li> -->
 							</ul>
 						</div>
-						<a href="<?php echo CFS()->get('footer_2gis', 2); ?>" class="footer__block footer__2gis">
+						<a target="_blank" href="<?php echo CFS()->get('footer_2gis', 2); ?>" class="footer__block footer__2gis">
 							<span>Оставьте отзыв на</span>
 							<img src="<?php echo get_template_directory_uri(); ?>/app/images/2gis.svg">
 						</a>
