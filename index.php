@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-
+	<!-- modals -->
 	<div class="modals">
 		<div class="modal-overlay">
 			<div class="modal modal--1" data-target="eatcont-popup">
@@ -157,10 +157,7 @@
 			</div>
 		</div>
 	</div>
-
-
-
-
+	<!-- main -->						
 	<main class="main">
 		<!-- header -->
 		<header class="header">
@@ -401,23 +398,16 @@
 		<div class="tavern bg"></div>
 		<div class="container">
 			<h2 class="tavern__title title tavern__title_tablet">
-				НАША ТАВЕРНА
+				<?= CFS()->get('bar_title', 2); ?>
 			</h2>
 			<div class="tavern__wrapper">
 				<div class="tavern__left">
 					<h2 class="tavern__title title tavern__title_desktop">
-						НАША ТАВЕРНА
+						<?= CFS()->get('bar_title', 2); ?>
 					</h2>
 					<div class="tavern__content">
 						<div class="tavern__text">
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. 
-								Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-							</p>
-							<p>
-								*Асортимент бара регулярно меняется. Проверяйте меню чтобы всегда быть в курсе наших новых позиций.
-							</p>
+							<?= CFS()->get('bar_editor', 2); ?>
 						</div>
 						<button class="tavern__button button">
 							Ассортимент
@@ -510,7 +500,26 @@
 								?>
 							</div>
 							<ul class="footer__social">
-								<li class="footer__social-item">
+								<?php
+									$f_socs = CFS()->get('footer_socials', 2);
+									foreach ($f_socs as $f_soc){
+										?>
+										<li class="footer__social-item">
+											<a href="<?= $f_soc['footer_socials-link'] ?>">
+
+												<?php
+													foreach($f_soc['footer_socials-icon'] as $icon){
+														?>
+														<img src="<?php echo get_template_directory_uri(); ?>/app/images/socials/<?= $icon ?>.svg">
+													<?php };
+												?>
+												
+											</a>
+										</li>
+									<?php
+									}
+								?>
+								<!-- <li class="footer__social-item">
 									<a href="#">
 										<img src="<?php echo get_template_directory_uri(); ?>/app/images/insta.svg">
 									</a>
@@ -529,13 +538,13 @@
 									<a href="#">
 										<img src="<?php echo get_template_directory_uri(); ?>/app/images/vk.svg">
 									</a>
-								</li>
+								</li> -->
 							</ul>
 						</div>
-						<div class="footer__block footer__2gis">
+						<a href="<?php echo CFS()->get('footer_2gis', 2); ?>" class="footer__block footer__2gis">
 							<span>Оставьте отзыв на</span>
 							<img src="<?php echo get_template_directory_uri(); ?>/app/images/2gis.svg">
-						</div>
+						</a>
 					</div>
 					<div class="footer__print">
 						<img src="<?php echo get_template_directory_uri(); ?>/app/images/bg-print.png">
@@ -544,5 +553,5 @@
 			</div>
 		</footer>
 	</div>
-<!-- get_footer -->
+
 <?php get_footer(); ?>
