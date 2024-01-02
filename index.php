@@ -396,23 +396,25 @@
 						<div class="tavern__text">
 							<?= CFS()->get('bar_editor', 2); ?>
 						</div>
-						<button class="tavern__button button">
-							Ассортимент
-						</button>
+						<div class="tavern__button-wrapper">
+							<button class="tavern__button button">
+								Ассортимент
+							</button>
+						</div>
 					</div>
 				</div>
 				<div class="tavern__right spotlight-group">
-					<a href="<?= CFS()->get('bar_image_big', 2); ?>" class="spotlight tavern__img tavern__img_big">
-						<img src="<?= CFS()->get('bar_image_big', 2); ?>">
+					<a href="<?= CFS()->get('bar_image_big', 2); ?>" class="spotlight tavern__img tavern__img_big" style="background-image: url(<?= CFS()->get('bar_image_big', 2); ?>);">
+						
 					</a>
-					<a href="<?= CFS()->get('bar_image_small_1', 2); ?>" class="spotlight tavern__img">
-						<img src="<?= CFS()->get('bar_image_small_1', 2); ?>">
+					<a href="<?= CFS()->get('bar_image_small_1', 2); ?>" class="spotlight tavern__img" style="background-image: url(<?= CFS()->get('bar_image_small_1', 2); ?>);">
+						
 					</a>
-					<a href="<?= CFS()->get('bar_image_small_2', 2); ?>" class="spotlight tavern__img">
-						<img src="<?= CFS()->get('bar_image_small_2', 2); ?>">
+					<a href="<?= CFS()->get('bar_image_small_2', 2); ?>" class="spotlight tavern__img" style="background-image: url(<?= CFS()->get('bar_image_small_2', 2); ?>);">
+						
 					</a>
-					<a href="<?= CFS()->get('bar_image_small_3', 2); ?>" class="spotlight tavern__img">
-						<img src="<?= CFS()->get('bar_image_small_3', 2); ?>">
+					<a href="<?= CFS()->get('bar_image_small_3', 2); ?>" class="spotlight tavern__img" style="background-image: url(<?= CFS()->get('bar_image_small_3', 2); ?>);">
+						
 					</a>
 				</div>
 			</div>

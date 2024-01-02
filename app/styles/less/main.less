@@ -235,6 +235,7 @@ body{
     position: absolute;
     right: 0;
     top: -45px;
+    overflow: hidden;
 }
 .header__right img{
     position: relative;
@@ -245,6 +246,7 @@ body{
     position: absolute;
     left: 0;
     top: -45px;
+    overflow: hidden;
 }
 .header__left img{
     position: relative;
@@ -776,7 +778,6 @@ body{
     left: -100px;
     bottom: -200px;
     max-width: 650px;
-    // max-width: 30vw;
     opacity: .7;
 }
 .team__wrapper{
@@ -788,7 +789,7 @@ body{
     z-index: 9;
 }
 .team__content{
-    max-width: 50%;
+    max-width: 40%;
     position: relative;
     z-index: 10;
 }
@@ -1024,7 +1025,7 @@ body{
     gap: 65px;
 }
 .tavern__left{
-    max-width: 500px;
+    max-width: 600px;
 }
 .tavern__content{
     margin-top: 50px;
@@ -1047,7 +1048,7 @@ body{
     display: none;
 }
 .tavern__right{
-    max-width: 700px;
+    max-width: 600px;
     justify-content: space-between;
     display: flex;
     flex-wrap: wrap;
@@ -1056,37 +1057,65 @@ body{
     display: inline-block;
 }
 .tavern__img{
-    max-width: 32%;
+    width: 192px;
+    height: 287px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     cursor: zoom-in;
 }
 .tavern__img_big{
-    max-width: 100%;
+    width: 600px;
+    height: 345px;
     margin-bottom: 8px;
 }
-@media screen and (max-width: 991px){
+@media screen and (max-width: 1540px){
     .tavern__img{
-        width: 31.8%;
+        width: 173px;
+        height: 248px;
     }
-    .tavern__wrapper{
-        gap: 45px
+    .tavern__img_big{
+        width: 540px;
+        height: 305px;
     }
 }
-@media screen and (max-width: 768px){
+@media screen and (max-width: 1260px){
+    .tavern__img{
+        width: 158px;
+        height: 230px;
+    }
+    .tavern__img_big{
+        width: 490px;
+        height: 285px;
+    }
+}
+@media screen and (max-width: 991px){
+    .tavern-wrapper{
+        padding: 65px 0;
+    }
     .tavern__wrapper{
         flex-direction: column-reverse;
+        gap: 35px;
     }
-    // .tavern__imgs{
-    //     flex: 100% 0 0;
-    // }
     .tavern__title_tablet{
         display: block;
-        margin-bottom: 25px;
+        margin-bottom: 50px;
+        text-align: center;
     }
     .tavern__title_desktop{
         display: none;
     }
     .tavern__content{
         margin-top: 0;
+    }
+    .tavern__right{
+        max-width: 490px;
+    }
+    .tavern__text{
+        text-align: center;
+    }
+    .tavern__button-wrapper{
+        text-align: center;
     }
 }
 /* bottom sections */
