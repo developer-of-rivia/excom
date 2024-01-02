@@ -401,16 +401,19 @@
 						</button>
 					</div>
 				</div>
-				<div class="tavern__right">
-					<!-- <a class="spotlight" href="img1.jpg">
-						<img src="thumb1.jpg">
+				<div class="tavern__right spotlight-group">
+					<a href="<?= CFS()->get('bar_image_big', 2); ?>" class="spotlight tavern__img tavern__img_big">
+						<img src="<?= CFS()->get('bar_image_big', 2); ?>">
 					</a>
-					<a class="spotlight" href="img2.jpg">
-						<img src="thumb2.jpg">
+					<a href="<?= CFS()->get('bar_image_small_1', 2); ?>" class="spotlight tavern__img">
+						<img src="<?= CFS()->get('bar_image_small_1', 2); ?>">
 					</a>
-					<a class="spotlight" href="img3.jpg">
-						<img src="thumb3.jpg">
-					</a> -->
+					<a href="<?= CFS()->get('bar_image_small_2', 2); ?>" class="spotlight tavern__img">
+						<img src="<?= CFS()->get('bar_image_small_2', 2); ?>">
+					</a>
+					<a href="<?= CFS()->get('bar_image_small_3', 2); ?>" class="spotlight tavern__img">
+						<img src="<?= CFS()->get('bar_image_small_3', 2); ?>">
+					</a>
 				</div>
 			</div>
 		</div>
