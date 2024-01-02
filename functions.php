@@ -6,8 +6,8 @@
 		// wp_enqueue_style( 'kotiapusi-style', get_stylesheet_uri(), array(), _S_VERSION );
 		// style css
 		wp_enqueue_style('style', get_stylesheet_uri() );
-		// gallery css
-		wp_enqueue_style('gallerycss', get_template_directory_uri() . '/app/css/lightgallery/lightgallery.min.css');
+		// spotlight gallery css
+		wp_enqueue_style('gallerycss', get_template_directory_uri() . '/app/libs/spotlight-gallery/spotlight.min.css');
 		// swiper css
 		wp_enqueue_style('swipercss', 'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css');
 		// main css
@@ -15,7 +15,7 @@
 		// swiper js
 		wp_enqueue_script( 'swiperjs', 'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js');
 		// gallery
-		wp_enqueue_script( 'galleryjs', get_template_directory_uri() . '/app/js/lightgallery.min.js');
+		wp_enqueue_script( 'galleryjs', get_template_directory_uri() . '/app/libs/spotlight-gallery/spotlight.bundle.js');
 		// main js
 		wp_enqueue_script( 'mainjs', get_template_directory_uri() . '/app/js/app.min.js');
 	}

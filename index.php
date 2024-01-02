@@ -333,12 +333,14 @@
 		</h2>
 		<div class="gallery__container">
 			<div class="swiper gallery__swiper">
-				<div class="swiper-wrapper">
+				<div class="swiper-wrapper spotlight-group">
 					<?php
 						$gallery = CFS()->get('main_gallery', 2);
 						foreach ($gallery as $image){
 							?>
-							<div class="swiper-slide" style="background-image: url(<?php echo $image['main_gallery_img']; ?>);"></div>
+							<div class="swiper-slide" style="background-image: url(<?php echo $image['main_gallery_img']; ?>);">
+								<a class="spotlight" href="<?php echo $image['main_gallery_img']; ?>"></a>
+							</div>
 						<?php
 						}
 					?>
@@ -400,7 +402,15 @@
 					</div>
 				</div>
 				<div class="tavern__right">
-					<img src="<?php echo get_template_directory_uri(); ?>/app/images/tavern-callage.png">
+					<!-- <a class="spotlight" href="img1.jpg">
+						<img src="thumb1.jpg">
+					</a>
+					<a class="spotlight" href="img2.jpg">
+						<img src="thumb2.jpg">
+					</a>
+					<a class="spotlight" href="img3.jpg">
+						<img src="thumb3.jpg">
+					</a> -->
 				</div>
 			</div>
 		</div>
