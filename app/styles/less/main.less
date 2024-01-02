@@ -139,16 +139,6 @@ body{
 
 /* main */
 .main__neon{
-    // text-shadow: 
-	// 0 0 10px rgba(255,255,255,.5),
-	// 0 0 20px rgba(255,255,255,.5),
-	// 0 0 22px rgba(255,255,255,.5),
-	// 0 0 40px rgba(95, 138, 198, .8),
-	// 0 0 60px rgba(95, 138, 198, .8),
-	// 0 0 80px rgba(95, 138, 198, .8),
-	// 0 0 100px rgba(95, 138, 198, .5),
-	// 0 0 140px rgba(95, 138, 198, .5),
-	// 0 0 200px rgba(95, 138, 198, .5);
     box-shadow:
     0 0 10px hsla(0,0%,100%,.1),
     0 0 20px hsla(0,0%,100%,.1),
@@ -163,13 +153,18 @@ body{
 	animation-timing-function: linear;
     position: absolute;
     left: 50%;
-    margin-left: -279px;
-    top: 111px;
+    margin-left: -289px;
     font-size: 65px;
-    letter-spacing: 4px;
+    letter-spacing: 5.6px;
     color: transparent;
-
-    display: none;
+    top: 118px;
+}
+@media screen and (max-width: 1540px){
+    .main__neon{
+        top: 104px;
+        margin-left: -269px;
+        letter-spacing: 2.5px;
+    }
 }
 @keyframes neon {
 	0% {
@@ -422,13 +417,19 @@ body{
 }
 @media screen and (max-width: 1200px){
     .nav{
-        margin-top: 240px;
+        margin-top: 210px;
     }
     .nav__item-go{
         font-size: 16px;
     }
     .nav__item-title{
         font-size: 20px;
+    }
+    .main__neon{
+        top: 88px;
+        margin-left: -224px;
+        letter-spacing: 3.2px;
+        font-size: 52px;
     }
 }
 @media screen and (max-width: 991px){
@@ -469,6 +470,12 @@ body{
         bottom: -310px;
         z-index: -1;
     }
+    .main__neon{
+        font-size: 44px;
+        letter-spacing: 3.2px;
+        margin-left: -193px;
+        top: 106px;
+    }
 }
 @media screen and (max-width: 768px){
     .nav__box{
@@ -485,6 +492,12 @@ body{
     }
     .nav__item{
         height: 180px !important;
+    }
+    .main__neon{
+        font-size: 39px;
+        letter-spacing: 2.7px;
+        margin-left: -170px;
+        top: 96px;
     }
 }
 @media screen and (max-width: 574px){
@@ -514,6 +527,12 @@ body{
     .nav__print{
         margin-left: -50%;
         bottom: -240px;
+    }
+    .main__neon{
+        font-size: 35px;
+        letter-spacing: 2px;
+        margin-left: -150px;
+        top: 88px;
     }
 }
 @media screen and (max-width: 500px){
@@ -601,7 +620,7 @@ body{
 .info__text{
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 10px;
     font-size: 18px;
     margin-bottom: 35px;
 }

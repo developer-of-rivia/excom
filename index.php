@@ -230,9 +230,9 @@
 						<span class="nav__item-title">
 							Мероприятия
 						</span>
-						<ul class="nav__item-events">
+						<!-- <ul class="nav__item-events">
 							<li>Стендап - 9 декабря</li>
-						</ul>
+						</ul> -->
 						<div class="nav__item-go">
 							Хочу
 						</div>
@@ -251,19 +251,10 @@
 				<div class="info__box">
 					<div class="info__box-left">
 						<div class="info__title">
-							Контакты ресторана
+							<?= CFS()->get('main_information_title', 2); ?>
 						</div>
 						<div class="info__text">
-							<p>
-								ул. Красный проспект 326/3
-							</p>
-							<p>
-								Завтраки: пн-пт с 10:00 до 12:00, сб-вс с <br>
-								11:00 до 13:00
-							</p>
-							<p>
-								Далеко-далеко за словесными, горами в стране гласных и согласных живут рыбные тексты.
-							</p>
+							<?= CFS()->get('main_information_left-text', 2); ?>
 						</div>
 						<div class="info__block info__block_button">
 							<a href="#" class="info__button btn">
@@ -272,33 +263,26 @@
 						</div>
 					</div>
 					<div class="info__box-right">
-						<div class="info__time">
-							<div class="info__time-icon">
-								<img src="<?php echo get_template_directory_uri(); ?>/app/images/clock.svg">
-							</div>
-							<div class="info__time-content">
-								<span>пн, вт, ср, чт</span>
-								<p>с 10:00 до 00:00</p>
-							</div>
-						</div>
-						<div class="info__time">
-							<div class="info__time-icon">
-								<img src="<?php echo get_template_directory_uri(); ?>/app/images/clock.svg">
-							</div>
-							<div class="info__time-content">
-								<span>пн, вт, ср, чт</span>
-								<p>с 10:00 до 00:00</p>
-							</div>
-						</div>
-						<div class="info__time">
-							<div class="info__time-icon">
-								<img src="<?php echo get_template_directory_uri(); ?>/app/images/clock.svg">
-							</div>
-							<div class="info__time-content">
-								<span>пн, вт, ср, чт</span>
-								<p>с 10:00 до 00:00</p>
-							</div>
-						</div>
+						<?php
+							$mi_times = CFS()->get('main_information_times', 2);
+							foreach ($mi_times as $mi_time){
+								?>
+								<div class="info__time">
+									<div class="info__time-icon">
+										<img src="<?php echo get_template_directory_uri(); ?>/app/images/clock.svg">
+									</div>
+									<div class="info__time-content">
+										<span>
+											<?php echo $mi_time['main_information_times-days']; ?>
+										</span>
+										<p>
+											<?php echo $mi_time['main_information_times-time']; ?>
+										</p>
+									</div>
+								</div>
+							<?php
+							}
+						?>
 						<div class="info__time">
 							<div class="info__time-icon">
 								<img src="<?php echo get_template_directory_uri(); ?>/app/images/mail.svg">
