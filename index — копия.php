@@ -32,15 +32,11 @@
 										if ( $query->have_posts() ) {
 											while ( $query->have_posts() ) {
 												$query->the_post();
-												
-												if($menu_left_groups = CFS()->get('menu_left_groups') || $menu_right_groups = CFS()->get('menu_right_groups')){
-
-													?>	
-														<a href="#" data-tab="<?php the_ID(); ?>" class="nav-tab <?= $menu_count_head == 0 ? 'active' : '' ?>">
-															<?php the_title(); ?>
-														</a>
-												<?php }
-												
+												?>
+													<a href="#" data-tab="<?php the_ID(); ?>" class="nav-tab <?= $menu_count_head == 0 ? 'active' : '' ?>">
+														<?php the_title(); ?>
+													</a>
+												<?php
 												$menu_count_head++;
 											}
 										}
@@ -58,26 +54,24 @@
 										if ( $query->have_posts() ) {
 											while ( $query->have_posts() ) {
 												$query->the_post();
-
-												if($menu_left_groups = CFS()->get('menu_left_groups') || $menu_right_groups = CFS()->get('menu_right_groups')){
 												?>
 													<div data-tab-content="<?php the_ID(); ?>" class="tab-pane <?= $menu_count == 0 ? 'active' : '' ?>">
 														<div class="eatcont__menu">
 															<div class="eatcont__menu-column">
 																<?php
-																	if($menu_left_groups = CFS()->get('menu_left_groups')){
 																	$menu_left_groups = CFS()->get('menu_left_groups');
 
 																	foreach ($menu_left_groups as $left_group) {
 																		?>
 																		<div class="eatcont__box">
 																			<div class="eatcont__box-title">
-																				<?= $left_group['menu_left_groups_title']; ?>
+																				<?= $left_group['menu_left_groups_tiitle']; ?>
 																			</div>
 																			<?php
 																				$menu_left_groups_dishes = $left_group['menu_left_groups_dishes'];
 																				foreach($menu_left_groups_dishes as $dish){
 																					?>
+
 																					<div class="eatcont__item">
 																						<div class="eatcont__item-left">
 																							<div class="eatcont__item-name">
@@ -102,20 +96,18 @@
 
 																			<?php } ?>
 																		</div>
-																	<?php } }
+																	<?php }
 																?>
 															</div>
 															<div class="eatcont__menu-column">
 																<?php
-
-																	if($menu_right_groups = CFS()->get('menu_right_groups')){
 																	$menu_right_groups = CFS()->get('menu_right_groups');
 
 																	foreach ($menu_right_groups as $right_group) {
 																		?>
 																		<div class="eatcont__box">
 																			<div class="eatcont__box-title">
-																				<?= $right_group['menu_right_groups_title']; ?>
+																				<?= $right_group['menu_right_groups_tiitle']; ?>
 																			</div>
 																			<?php
 																				$menu_right_groups_dishes = $right_group['menu_right_groups_dishes'];
@@ -146,12 +138,12 @@
 
 																			<?php } ?>
 																		</div>
-																	<?php } }
+																	<?php }
 																?>
 															</div>
 														</div>
 													</div>
-												<?php }
+												<?php
 												$menu_count++;
 											}
 										}
@@ -202,7 +194,7 @@
 		<div class="nav">
 			<div class="containerr">
 				<div class="nav__box">
-					<a href="#info" class="nav__item" style="background-image: url(<?php echo get_template_directory_uri(); ?>/app/images/where-nav.jpg)">
+					<div class="nav__item" style="background-image: url(<?php echo get_template_directory_uri(); ?>/app/images/where-nav.jpg)">
 						<span class="nav__item-title">
 							Контакты <br>
                             Бронь стола <br>
@@ -211,15 +203,15 @@
 						<div class="nav__item-go">
 							Найти
 						</div>
-					</a>
-					<a href="#gallery" class="nav__item nav__item_gallery" style="background-image: url(<?php echo get_template_directory_uri(); ?>/app/images/slider-img2.png)">
+					</div>
+					<div class="nav__item nav__item_gallery" style="background-image: url(<?php echo get_template_directory_uri(); ?>/app/images/slider-img2.png)">
 						<span class="nav__item-title">
 							Галерея
 						</span>
 						<div class="nav__item-go">
 							Завайбиться
 						</div>
-					</a>
+					</div>
 					<div class="nav__item popup-link" data-path="eatcont-popup" style="background-image: url(<?php echo get_template_directory_uri(); ?>/app/images/menu-nav2.jpg)">
 						<span class="nav__item-title">
 							Меню
@@ -228,22 +220,25 @@
 							Посмотреть
 						</div>
 					</div>
-					<a href="#tavern-section" class="nav__item nav__item_bar" style="background-image: url(<?php echo get_template_directory_uri(); ?>/app/images/tavern-img1.png)">
+					<div class="nav__item nav__item_bar" style="background-image: url(<?php echo get_template_directory_uri(); ?>/app/images/tavern-img1.png)">
 						<span class="nav__item-title">
 							Наш бар
 						</span>
 						<div class="nav__item-go">
 							Оценить
 						</div>
-					</a>
-					<a href="#" class="nav__item" style="background-image: url(<?php echo get_template_directory_uri(); ?>/app/images/events-nav.jpg)">
+					</div>
+					<div class="nav__item" style="background-image: url(<?php echo get_template_directory_uri(); ?>/app/images/events-nav.jpg)">
 						<span class="nav__item-title">
 							Мероприятия
 						</span>
+						<!-- <ul class="nav__item-events">
+							<li>Стендап - 9 декабря</li>
+						</ul> -->
 						<div class="nav__item-go">
 							Хочу
 						</div>
-					</a>
+					</div>
 				</div>
 			</div>
 			<div class="nav__print">
@@ -334,7 +329,7 @@
 		</div>
 	</div>
 	<!-- gallery -->
-	<div class="gallery" id="gallery">
+	<div class="gallery">
 		<h2 class="gallery__title title">
 			Галерея
 		</h2>
@@ -388,7 +383,7 @@
 		</div>
 	</div>
 	<!-- tavern -->
-	<div class="tavern-wrapper" id="tavern-section">
+	<div class="tavern-wrapper">
 		<div class="tavern bg"></div>
 		<div class="container">
 			<h2 class="tavern__title title tavern__title_tablet">
