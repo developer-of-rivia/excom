@@ -288,34 +288,35 @@
 								<img src="<?php echo get_template_directory_uri(); ?>/app/images/mail.svg">
 							</div>
 							<div class="info__time-content">
-								<p>info@dedbynokol.com</p>
+								<p>
+									<?= CFS()->get('main_information_post', 2); ?>
+								</p>
 							</div>
 						</div>
 						<ul class="info__social">
-							<li class="info__social-item">
-								<a href="#">
-									<img src="http://excomunicado/wp-content/themes/excommunicado/app/images/insta.svg">
-								</a>
-							</li>
-							<li class="info__social-item">
-								<a href="#">
-									<img src="http://excomunicado/wp-content/themes/excommunicado/app/images/whatsapp.svg">
-								</a>
-							</li>
-							<li class="info__social-item">
-								<a href="#">
-									<img src="http://excomunicado/wp-content/themes/excommunicado/app/images/telega.svg">
-								</a>
-							</li>
-							<li class="info__social-item">
-								<a href="#">
-									<img src="http://excomunicado/wp-content/themes/excommunicado/app/images/vk.svg">
-								</a>
-							</li>
+							<?php
+								$mi_socs = CFS()->get('main_information_socials', 2);
+								foreach ($mi_socs as $mi_soc){
+									?>
+									<li class="info__social-item">
+										<a href="<?= $mi_soc['main_information_socials-link'] ?>">
+											<?php
+												foreach($mi_soc['main_information_socials-icon'] as $icon){
+													?>
+													<img src="<?php echo get_template_directory_uri(); ?>/app/images/socials/<?= $icon ?>.svg">
+												<?php };
+											?>
+										</a>
+									</li>
+								<?php
+								}
+							?>
 						</ul>
 						<div class="info__number">
 							<span>Сотрудничество:</span>
-							<a href="tel:79132793292">+7 913 279-32-92 (Николай)</a>
+							<a href="tel:79132793292">
+								<?= CFS()->get('main_information_phone', 2); ?>
+							</a>
 						</div>
 					</div>
 				</div>
