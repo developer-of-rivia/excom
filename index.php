@@ -162,8 +162,39 @@
 					</div>
 				</section>
 			</div>
-			<div class="modal modal--2" data-target="me-popup">
-				Окно 2
+			<div class="modal modal--2" data-target="bearmenu-popup">
+				<div class="modal-close">
+					
+				</div>
+			</div>
+			<div class="modal modal--3" data-target="meetings-popup">
+				<div class="meets">
+					<div class="meets__left">
+						<div class="meets__left-title">
+							Организовать:
+						</div>
+						<ul class="meets__left-box">
+							<li>
+								Ден
+							</li>
+							<li>
+
+							</li>
+							<li>
+
+							</li>
+						</ul>
+						<a href="" class="meets__left-number">
+							+7 (913) 279-32-92
+						</a>
+					</div>
+					<div class="meets__right">
+
+					</div>
+				</div>
+			</div>
+			<div class="modal modal--3" data-target="tables-popup">
+				
 			</div>
 		</div>
 	</div>
@@ -202,24 +233,22 @@
 		<div class="nav">
 			<div class="containerr">
 				<div class="nav__box">
-					<a href="#info" class="nav__item" style="background-image: url(<?php echo get_template_directory_uri(); ?>/app/images/where-nav.jpg)">
-						<span class="nav__item-title">
-							Контакты <br>
-                            Бронь стола <br>
-                            Доставка
-						</span>
-						<div class="nav__item-go">
-							Найти
-						</div>
-					</a>
-					<a href="#gallery" class="nav__item nav__item_gallery" style="background-image: url(<?php echo get_template_directory_uri(); ?>/app/images/slider-img2.png)">
+					<a href="#gallery" class="nav__item" style="background-image: url(<?php echo get_template_directory_uri(); ?>/app/images/where-nav.jpg)">
 						<span class="nav__item-title">
 							Галерея
 						</span>
 						<div class="nav__item-go">
-							Завайбиться
+							Посмотреть
 						</div>
 					</a>
+					<div class="nav__item nav__item_gallery popup-link" data-path="tables-popup" style="background-image: url(<?php echo get_template_directory_uri(); ?>/app/images/slider-img2.png)">
+						<span class="nav__item-title">
+							Бронирование стола
+						</span>
+						<div class="nav__item-go">
+							Забронировать
+						</div>
+					</div>
 					<div class="nav__item popup-link" data-path="eatcont-popup" style="background-image: url(<?php echo get_template_directory_uri(); ?>/app/images/menu-nav2.jpg)">
 						<span class="nav__item-title">
 							Меню
@@ -228,22 +257,22 @@
 							Посмотреть
 						</div>
 					</div>
-					<a href="#tavern-section" class="nav__item nav__item_bar" style="background-image: url(<?php echo get_template_directory_uri(); ?>/app/images/tavern-img1.png)">
+					<div class="nav__item nav__item_bar popup-link" data-path="bearmenu-popup" style="background-image: url(<?php echo get_template_directory_uri(); ?>/app/images/tavern-img1.png)">
 						<span class="nav__item-title">
-							Наш бар
+							Что по пиву
 						</span>
 						<div class="nav__item-go">
 							Оценить
 						</div>
-					</a>
-					<a href="#" class="nav__item" style="background-image: url(<?php echo get_template_directory_uri(); ?>/app/images/events-nav.jpg)">
+					</div>
+					<div class="nav__item popup-link" data-path="meetings-popup" style="background-image: url(<?php echo get_template_directory_uri(); ?>/app/images/events-nav.jpg)">
 						<span class="nav__item-title">
 							Мероприятия
 						</span>
 						<div class="nav__item-go">
 							Хочу
 						</div>
-					</a>
+					</div>
 				</div>
 			</div>
 			<div class="nav__print">
@@ -404,7 +433,7 @@
 							<?= CFS()->get('bar_editor', 2); ?>
 						</div>
 						<div class="tavern__button-wrapper">
-							<button class="tavern__button button">
+							<button class="tavern__button btn">
 								Ассортимент
 							</button>
 						</div>

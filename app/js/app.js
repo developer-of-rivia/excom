@@ -1,12 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-
-
 	// модалки
 	const btns = document.querySelectorAll('.popup-link');
-	const modalOverlay = document.querySelector('.modal-overlay ');
+	const modalOverlay = document.querySelector('.modal-overlay');
 	const modals = document.querySelectorAll('.modal');
 	const close = document.querySelector('.modal-close');
+
 
 	btns.forEach((el) => {
 		el.addEventListener('click', (e) => {
@@ -18,6 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 			document.querySelector(`[data-target="${path}"]`).classList.add('modal--visible');
 			modalOverlay.classList.add('modal-overlay--visible');
+
+
+			scrollLock.disablePageScroll(modalOverlay);
 		});
 	});
 
@@ -28,8 +30,10 @@ document.addEventListener('DOMContentLoaded', () => {
 			modalOverlay.classList.remove('modal-overlay--visible');
 			modals.forEach((el) => {
 				el.classList.remove('modal--visible');
+				scrollLock.enablePageScroll(modalOverlay);
 			});
 		}
+
 	});
 
 	close.addEventListener('click', (e) => {
@@ -39,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			modalOverlay.classList.remove('modal-overlay--visible');
 			modals.forEach((el) => {
 				el.classList.remove('modal--visible');
+				scrollLock.enablePageScroll(modalOverlay);
 			});
 		}
 	});

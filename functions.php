@@ -3,7 +3,6 @@
 	/* Enqueue scripts and styles */
 	add_action( 'wp_enqueue_scripts', 'kotiapusi_scripts' );
 	function kotiapusi_scripts() {
-		// wp_enqueue_style( 'kotiapusi-style', get_stylesheet_uri(), array(), _S_VERSION );
 		// style css
 		wp_enqueue_style('style', get_stylesheet_uri() );
 		// spotlight gallery css
@@ -16,6 +15,8 @@
 		wp_enqueue_script( 'swiperjs', 'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js');
 		// gallery
 		wp_enqueue_script( 'galleryjs', get_template_directory_uri() . '/app/libs/spotlight-gallery/spotlight.bundle.js');
+		// gallery
+		wp_enqueue_script( 'scroll-lock', get_template_directory_uri() . '/app/libs/scroll-lock/scroll-lock.min.js');
 		// main js
 		wp_enqueue_script( 'mainjs', get_template_directory_uri() . '/app/js/app.min.js');
 	}

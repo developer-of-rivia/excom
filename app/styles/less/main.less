@@ -36,9 +36,6 @@ a{
 img{
     max-width: 100%;
 }
-body,html{
-    overflow-x: hidden;
-}
 
 /* container */
 .container{
@@ -110,7 +107,7 @@ body{
 
 .title{
     text-transform: uppercase;
-    font-size: 34px;
+    font-size: 36px;
     color: #fff;
     font-family: 'B52';
     font-weight: 400;
@@ -119,8 +116,14 @@ body{
     font-family: 'B52';
     color: #fff;
     display: inline-block;
+    border: none;
 }
-@media screen and (max-width: 1200px){
+@media screen and (max-width: 1540px){
+    .title{
+        font-size: 32px;
+    }
+}
+@media screen and (max-width: 1260px){
     .title{
         font-size: 30px;
     }
@@ -865,11 +868,17 @@ body{
     }
     .team{
         background: #222;
-        margin-bottom: 50px;
-        margin-top: 70px;
+        margin-top: 30px;
         padding-top: 60px;
         margin-bottom: 0;
         padding-bottom: 60px;
+    }
+}
+@media screen and (max-width: 574px){
+    .team{
+        margin-top: 30px;
+        padding-bottom: 50px;
+        padding-top: 40px;
     }
 }
 /* gallery */
@@ -951,6 +960,10 @@ body{
         opacity: 1;
         background: #fff;
     }
+    .swiper-button-prev:hover,
+    .swiper-button-next:hover{
+        opacity: .7;
+    }
 }
 @media screen and (max-width: 1540px){
     .gallery .swiper-slide{
@@ -984,6 +997,9 @@ body{
     }
 }
 @media screen and (max-width: 768px){
+    .gallery{
+        padding-top: 70px;
+    }
     .gallery .swiper-slide{
         width: 400px;
         height: 280px;
@@ -1028,7 +1044,7 @@ body{
     gap: 65px;
 }
 .tavern__left{
-    max-width: 600px;
+    max-width: 700px;
 }
 .tavern__content{
     margin-top: 50px;
@@ -1040,18 +1056,25 @@ body{
 .tavern__text p{
     color: #fff !important;
     margin-bottom: 30px;
+    font-size: 20px;
+    line-height: 28px;
 }
 .tavern__text p:last-child{
     margin-bottom: 0;
 }
 .tavern__button{
     margin-top: 60px;
+
+    background: url(../images/team-btn-bg.png) no-repeat 50%/cover;
+    font-size: 24px;
+    margin-top: 80px;
+    padding: 12px 16px;
 }
 .tavern__title_tablet{
     display: none;
 }
 .tavern__right{
-    max-width: 600px;
+    max-width: 700px;
     justify-content: space-between;
     display: flex;
     flex-wrap: wrap;
@@ -1060,16 +1083,16 @@ body{
     display: inline-block;
 }
 .tavern__img{
-    width: 192px;
-    height: 287px;
+    width: 226px;
+    height: 327px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     cursor: zoom-in;
 }
 .tavern__img_big{
-    width: 600px;
-    height: 345px;
+    width: 700px;
+    height: 395px;
     margin-bottom: 8px;
 }
 @media screen and (max-width: 1540px){
@@ -1081,6 +1104,9 @@ body{
         width: 540px;
         height: 305px;
     }
+    .tavern__text p{
+        font-size: 18px;
+    }
 }
 @media screen and (max-width: 1260px){
     .tavern__img{
@@ -1090,6 +1116,12 @@ body{
     .tavern__img_big{
         width: 490px;
         height: 285px;
+    }
+    .tavern__text p{
+        font-size: 16px;
+    }
+    .tavern__button{
+        font-size: 18px;
     }
 }
 @media screen and (max-width: 991px){
@@ -1119,6 +1151,42 @@ body{
     }
     .tavern__button-wrapper{
         text-align: center;
+    }
+    .tavern__button{
+        margin-top: 50px;
+    }
+}
+@media screen and (max-width: 767px){
+    .info__box-right{
+        max-width: 100%;
+    }
+}
+@media screen and (max-width: 574px){
+    .tavern__title_tablet{
+        margin-bottom: 35px;
+    }
+    .tavern-wrapper{
+        padding: 45px 0;
+    }
+}
+@media screen and (max-width: 450px){
+    .tavern__img{
+        width: 135px;
+        height: 200px;
+    }
+    .tavern__img_big{
+        width: 420px;
+        height: 245px;
+    }
+}
+@media screen and (max-width: 380px){
+    .tavern__img{
+        height: 160px;
+        width: 112px;
+    }
+    .tavern__img_big{
+        width: 350px;
+        height: 195px;
     }
 }
 /* bottom sections */
@@ -1284,6 +1352,9 @@ body{
     .footer__center{
         position: absolute;
         right: 15px;
+    }
+    .footer{
+        padding: 30px 0;
     }
 }
 @media screen and (max-width: 480px){
@@ -1682,7 +1753,7 @@ body{
 }
 .modal-close{
     position: fixed;
-    right: 15px;
+    right: 35px;
     top: 15px;
     z-index: 999;
     background: url('../images/close.svg') no-repeat center center, #e9d3b2;
@@ -1711,5 +1782,42 @@ body{
     .modal-close svg{
         fill: #fff;
         stroke: #fff;
+    }
+}
+/* meets */
+.meets{
+    width: 930px;
+    height: 450px;
+    display: flex;
+}
+.meets__left{
+    width: 370px;
+    padding: 30px;
+    background: #383435;
+}
+.meets__right{
+    flex-grow: 1;
+    height: 100%;
+    background: #ccc;
+}
+.meets__left-title{
+    font-family: 'B52';
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+@media screen and (max-width: 991px){
+    .modal--3{
+        padding: 100px 20px;
+    }
+    .meets{
+        width: 100%;
+    }
+}
+@media screen and (max-width: 850px){
+    .meets{
+        flex-direction: column;
+    }
+    .meets__left{
+        width: 100%;
     }
 }
